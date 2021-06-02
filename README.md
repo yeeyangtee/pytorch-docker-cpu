@@ -10,3 +10,7 @@ Use wget to download the public dataset. Private ones could be hosted somewhere 
 Model training script is just a .py file
 Trained model gets saved on the deployment. Currently using SSH/SCP as a workaround to grab the trained model file. Pretty sure theres a better way to do it....
 
+### TODOs
+- Use smaller image
+- Alternatives to SSH for getting model file
+- Visualisation of training by running tensorboard
