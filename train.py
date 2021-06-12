@@ -10,6 +10,9 @@ from torchvision import datasets, models, transforms
 import time
 import os
 import copy
+from torch.utils.tensorboard import SummaryWriter
+
+writer = SummaryWriter()
 
 data_transforms = {
     'train': transforms.Compose([
@@ -86,6 +89,10 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
 
             epoch_loss = running_loss / dataset_sizes[phase]
             epoch_acc = running_corrects.double() / dataset_sizes[phase]
+
+            # WRITE to tensorboard!
+            writer.add_scalar('Training Loss', epoch_loss, epoch)
+            writer.add_scalar('Training Accuracy', epoch_acc, epoch)
 
             print('{} Loss: {:.4f} Acc: {:.4f}'.format(
                 phase, epoch_loss, epoch_acc))

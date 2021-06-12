@@ -22,5 +22,6 @@ COPY . .
 RUN chmod 755 /app/train-py.sh
 RUN chmod 755 /app/train.py
 RUN chmod 755 /app/ssh.sh
+RUN chmod 755 /app/start-tb.sh
 
 CMD ["/usr/bin/supervisord"]

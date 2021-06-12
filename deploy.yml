@@ -3,7 +3,7 @@ version: "2.0"
 
 services:
   web:
-    image: teeyeeyang/pytorch-docker-cpu:1.0
+    image: teeyeeyang/pytorch-docker-cpu:1.3
     env:
       - pubkey=your_public_ssh_key_here
     expose:
@@ -11,6 +11,11 @@ services:
         as: 22
         to:
           - global: true
+      - port: 6006
+        as: 6006
+        to:
+          - global: true
+        
 
 profiles:
   compute:
